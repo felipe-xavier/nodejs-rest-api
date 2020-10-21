@@ -1,4 +1,4 @@
-// Application hooks that run for every service
+import setUuid from './hooks/set-uuid';// Application hooks that run for every service
 // Don't remove this comment. It's needed to format import lines nicely.
 
 export default {
@@ -6,7 +6,7 @@ export default {
     all: [],
     find: [],
     get: [],
-    create: [],
+    create: [setUuid()],
     update: [],
     patch: [],
     remove: []
