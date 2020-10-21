@@ -7,8 +7,14 @@ import { HookReturn } from 'sequelize/types/lib/hooks';
 export default function (app: Application): typeof Model {
   const sequelizeClient: Sequelize = app.get('sequelizeClient');
   const users = sequelizeClient.define('users', {
-  
-    email: {
+
+    id: {
+      type: DataTypes.UUID,
+      allowNull: false,
+      unique: true,
+      primaryKey: true
+    },
+    username: {
       type: DataTypes.STRING,
       allowNull: false,
       unique: true
@@ -17,8 +23,8 @@ export default function (app: Application): typeof Model {
       type: DataTypes.STRING,
       allowNull: false
     },
-  
-  
+
+
   }, {
     hooks: {
       beforeCount(options: any): HookReturn {
