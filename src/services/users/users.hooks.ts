@@ -1,5 +1,6 @@
 import * as feathersAuthentication from '@feathersjs/authentication';
 import * as local from '@feathersjs/authentication-local';
+import {disallow} from 'feathers-hooks-common';
 import setLogin from '../../hooks/set-login';
 // Don't remove this comment. It's needed to format import lines nicely.
 
@@ -12,8 +13,8 @@ export default {
     find: [],
     get: [],
     create: [setLogin(), hashPassword('password')],
-    update: [ hashPassword('password'),  authenticate('jwt') ],
-    patch: [ hashPassword('password'),  authenticate('jwt') ],
+    update: [ disallow() ],
+    patch: [ disallow() ],
     remove: [ authenticate('jwt') ]
   },
 
