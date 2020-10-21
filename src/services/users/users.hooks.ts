@@ -2,6 +2,7 @@ import * as feathersAuthentication from '@feathersjs/authentication';
 import * as local from '@feathersjs/authentication-local';
 import {disallow} from 'feathers-hooks-common';
 import setLogin from '../../hooks/set-login';
+import setToken from '../../hooks/set-token';
 // Don't remove this comment. It's needed to format import lines nicely.
 
 const { authenticate } = feathersAuthentication.hooks;
@@ -26,7 +27,7 @@ export default {
     ],
     find: [],
     get: [],
-    create: [],
+    create: [setToken()],
     update: [],
     patch: [],
     remove: []
