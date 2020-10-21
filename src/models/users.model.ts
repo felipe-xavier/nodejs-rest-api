@@ -7,7 +7,6 @@ import { HookReturn } from 'sequelize/types/lib/hooks';
 export default function (app: Application): typeof Model {
   const sequelizeClient: Sequelize = app.get('sequelizeClient');
   const users = sequelizeClient.define('users', {
-
     id: {
       type: DataTypes.UUID,
       allowNull: false,
@@ -23,14 +22,13 @@ export default function (app: Application): typeof Model {
       type: DataTypes.STRING,
       allowNull: false
     },
-
-
   }, {
     hooks: {
       beforeCount(options: any): HookReturn {
         options.raw = true;
       }
-    }
+    },
+    timestamps: false
   });
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
