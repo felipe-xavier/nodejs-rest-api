@@ -37,6 +37,11 @@ export default function (app: Application): typeof Model {
   (users as any).associate = function (models: any): void {
     // Define associations here
     // See http://docs.sequelizejs.com/en/latest/docs/associations/
+    this.hasMany(models.posts, {
+      foreignKey: 'author_id',
+      keyType: DataTypes.UUID,
+      as: 'posts'
+    });
   };
 
   return users;
