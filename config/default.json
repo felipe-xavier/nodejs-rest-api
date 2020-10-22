@@ -28,5 +28,5 @@
       "passwordField": "password"
     }
   },
-  "postgres": "postgres://interviewer:@172.30.0.2:5432/interview"
+  "db_url": "sqlite://nodejs-rest-api.sqlite"
 }

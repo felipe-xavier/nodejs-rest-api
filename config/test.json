@@ -1,1 +1,4 @@
-{}
+{
+  "db_url": "sqlite://nodejs-rest-api-test.sqlite",
+  "port": 3031
+}
