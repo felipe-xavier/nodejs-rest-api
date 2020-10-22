@@ -115,3 +115,5 @@ data/
 *.sqlite
 
 .nyc_output/
+
+.env
