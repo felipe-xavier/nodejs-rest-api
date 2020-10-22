@@ -3,6 +3,7 @@ import favicon from 'serve-favicon';
 import compress from 'compression';
 import helmet from 'helmet';
 import cors from 'cors';
+import dotenv from 'dotenv';
 
 import feathers from '@feathersjs/feathers';
 import configuration from '@feathersjs/configuration';
@@ -20,6 +21,8 @@ import { HookContext as FeathersHookContext } from '@feathersjs/feathers';
 import authentication from './authentication';
 import sequelize from './sequelize';
 // Don't remove this comment. It's needed to format import lines nicely.
+
+dotenv.config();
 
 const app: Application = express(feathers());
 export type HookContext<T = any> = { app: Application } & FeathersHookContext<T>;
