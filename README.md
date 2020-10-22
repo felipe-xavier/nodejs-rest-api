@@ -4,7 +4,8 @@
 
 ## About
 
-This project uses [Feathers](http://feathersjs.com). An open source web framework for building modern real-time applications.
+This project implements two REST services: Users and Posts. You can create a User and authenticate as well as create 
+ Posts. It is made with a great help of [Feathers](http://feathersjs.com), an open source web framework for building modern real-time applications.
 
 ## Getting Started
 
