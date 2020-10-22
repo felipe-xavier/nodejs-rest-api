@@ -7,4 +7,32 @@ describe('\'users\' service', () => {
 
     assert.ok(service, 'Registered the service');
   });
+
+  it('creates a user and encrypts password', async () => {
+    const user = await app.service('users').create({
+      username: 'test@example.com',
+      password: 'secret'
+    });
+
+    // Verify Gravatar has been set as we'd expect
+    // assert.strictEqual(user.avatar, 'https://s.gravatar.com/avatar/55502f40dc8b7c769880b10874abc9d0?s=60');
+    // Makes sure the password got encrypted
+    assert.ok(user.password !== 'secret');
+  });
+
+  it('removes password for external requests', async () => {
+    // Setting `provider` indicates an external request
+    const params = { provider: 'rest' };
+
+    const user = await app.service('users').create({
+      username: 'test2@example.com',
+      password: 'secret'
+    }, params);
+
+    // Make sure password has been removed
+    assert.ok(!user.password);
+
+    // Make sure Token is created.
+    assert.ok(user.accessToken);
+  });
 });

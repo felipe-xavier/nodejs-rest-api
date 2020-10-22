@@ -1,1 +1,4 @@
-{}
+{
+  "db_url": "SERVER_DB_TEST",
+  "port": "SERVER_PORT_TEST"
+}

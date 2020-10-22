@@ -8,13 +8,13 @@ const { authenticate } = authentication.hooks;
 
 export default {
   before: {
-    all: [ authenticate('jwt') ],
+    all: [],
     find: [sortPostsQuery()],
     get: [],
     create: [authenticate('jwt'), setAuthorId()],
     update: [disallow()],
     patch: [disallow()],
-    remove: []
+    remove: [authenticate('jwt')]
   },
 
   after: {

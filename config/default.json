@@ -1,6 +1,6 @@
 {
-  "host": "localhost",
-  "port": 3030,
+  "host": "SERVER_URL",
+  "port": "SERVER_PORT",
   "public": "../public/",
   "paginate": {
     "default": 10,
@@ -9,7 +9,7 @@
   "authentication": {
     "entity": "user",
     "service": "users",
-    "secret": "CHANGE-ME",
+    "secret": "SECRET_KEY",
     "authStrategies": [
       "jwt",
       "local"
@@ -28,5 +28,5 @@
       "passwordField": "password"
     }
   },
-  "postgres": "postgres://interviewer:@172.30.0.2:5432/interview"
+  "db_url": "SERVER_DB"
 }

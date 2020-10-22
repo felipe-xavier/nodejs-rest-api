@@ -110,3 +110,10 @@ $RECYCLE.BIN/
 # Others
 lib/
 data/
+
+# SQLite DB
+*.sqlite
+
+.nyc_output/
+
+.env
