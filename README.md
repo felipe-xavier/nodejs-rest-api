@@ -108,7 +108,7 @@ Response:
   },
   "user": {
     "id": <UUID>,
-    "username": "felipe"
+    "username": "user1"
   }
 }
 ```
@@ -116,6 +116,12 @@ Response:
 #### You can get a User through a GET request:
 ```
 GET http://localhost:3030/users/{uuid}
+```
+```json
+{ 
+  "username":"user1",
+  "id": <uuid>,
+}
 ```
 
 #### Remove a User requesting DELETE
