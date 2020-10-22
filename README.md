@@ -145,14 +145,15 @@ Response:
   "limit": N,
   "skip": 0,
   "data": [
-  {
-    "author_id": <user-UUID>,
-    "title": "first post",
-    "body": "blah blah blah!",
-    "id": <UUID>,
-    "updatedAt": <Timestamp>,
-    "createdAt": <Timestamp>
-  }
+    {
+      "author_id": <user-UUID>,
+      "title": "first post",
+      "body": "blah blah blah!",
+      "id": <UUID>,
+      "updatedAt": <Timestamp>,
+      "createdAt": <Timestamp>
+    }
+  ]
 }
 ```
 
@@ -168,12 +169,12 @@ GET http://localhost:3030/posts/<uuid>
 Response:
 ```json
 {
-    "author_id": <user-UUID>,
-    "title": "first post",
-    "body": "blah blah blah!",
-    "id": <UUID>,
-    "updatedAt": <Timestamp>,
-    "createdAt": <Timestamp>
+  "author_id": <user-UUID>,
+  "title": "first post",
+  "body": "blah blah blah!",
+  "id": <UUID>,
+  "updatedAt": <Timestamp>,
+  "createdAt": <Timestamp>
 }
 ```
 
