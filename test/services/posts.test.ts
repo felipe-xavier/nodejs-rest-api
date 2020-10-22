@@ -24,7 +24,7 @@ describe('\'posts\' service', () => {
 
     assert.strictEqual(post.title, 'a title');
     assert.strictEqual(post.body, 'the body');
-    // `userId` should be set to passed users it
+    // `author_id` should be set from user.
     assert.strictEqual(post.author_id, user.id);
 
   });
