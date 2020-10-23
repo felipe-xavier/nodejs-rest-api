@@ -1,7 +1,7 @@
 {
   "name": "nodejs-rest-api",
   "description": "A Nodejs REST-API server",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "homepage": "",
   "private": true,
   "main": "src",
