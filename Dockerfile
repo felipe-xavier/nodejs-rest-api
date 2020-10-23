@@ -5,10 +5,10 @@ WORKDIR /usr/src/app
 COPY package*.json ./
 COPY .env.sample ./.env
 
-RUN set -ex \
-  yarn install
-
 COPY . .
+
+RUN yarn install
+RUN yarn test
 
 EXPOSE 3030
 
