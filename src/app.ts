@@ -8,8 +8,6 @@ import dotenv from 'dotenv';
 import feathers from '@feathersjs/feathers';
 import configuration from '@feathersjs/configuration';
 import express from '@feathersjs/express';
-import socketio from '@feathersjs/socketio';
-
 
 import { Application } from './declarations';
 import logger from './logger';
@@ -43,7 +41,6 @@ app.use('/', express.static(app.get('public')));
 
 // Set up Plugins and providers
 app.configure(express.rest());
-app.configure(socketio());
 
 app.configure(sequelize);
 

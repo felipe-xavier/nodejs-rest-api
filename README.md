@@ -5,7 +5,7 @@
 ## About
 
 This project implements two REST services: Users and Posts. You can create a User and authenticate as well as create 
- Posts. It is made with a great help of [Feathers](http://feathersjs.com), an open source web framework for building modern real-time applications.
+ Posts. It uses the [Feathers](http://feathersjs.com) framework, an open source web framework for building modern API and eal-time applications.
 
 ## Getting Started
 
@@ -49,7 +49,7 @@ Getting up and running is as easy as 1, 2, 3.
 
 1. Make sure you have [docker](https://docs.docker.com/engine/install/) and [docker-compose](https://docs.docker.com/compose/install/) installed.
 
-2. Install and start the server
+2. Install, test and start the server
     ```
     cd path/to/nodejs-rest-api
     docker-compose up -d
