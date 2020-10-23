@@ -1,7 +1,6 @@
 import * as authentication from '@feathersjs/authentication';
 import {disallow} from 'feathers-hooks-common';
-import setAuthorId from '../../hooks/set-author-id';
-import sortPostsQuery from '../../hooks/sort-posts-query';
+import validatePost from '../../hooks/validate-post';
 // Don't remove this comment. It's needed to format import lines nicely.
 
 const { authenticate } = authentication.hooks;
@@ -9,9 +8,9 @@ const { authenticate } = authentication.hooks;
 export default {
   before: {
     all: [],
-    find: [sortPostsQuery()],
+    find: [],
     get: [],
-    create: [authenticate('jwt'), setAuthorId()],
+    create: [validatePost(), authenticate('jwt')],
     update: [disallow()],
     patch: [disallow()],
     remove: [authenticate('jwt')]
