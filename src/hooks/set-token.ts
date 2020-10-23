@@ -5,6 +5,7 @@ import { Hook, HookContext } from '@feathersjs/feathers';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export default (options = {}): Hook => {
   return async (context: HookContext): Promise<HookContext> => {
+    // login from before:create hook set-login.
     const { login } = context.params;
 
     const auth = await context.app

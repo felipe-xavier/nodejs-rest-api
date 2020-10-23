@@ -3,6 +3,8 @@ import * as local from '@feathersjs/authentication-local';
 import {disallow} from 'feathers-hooks-common';
 import setLogin from '../../hooks/set-login';
 import setToken from '../../hooks/set-token';
+import validateUser from '../../hooks/validate-user';
+
 // Don't remove this comment. It's needed to format import lines nicely.
 
 const { authenticate } = feathersAuthentication.hooks;
@@ -13,7 +15,7 @@ export default {
     all: [],
     find: [],
     get: [],
-    create: [setLogin(), hashPassword('password')],
+    create: [validateUser(), setLogin(), hashPassword('password')],
     update: [ disallow() ],
     patch: [ disallow() ],
     remove: [ authenticate('jwt') ]

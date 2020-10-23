@@ -4,7 +4,8 @@
 
 ## About
 
-This project uses [Feathers](http://feathersjs.com). An open source web framework for building modern real-time applications.
+This project implements two REST services: Users and Posts. You can create a User and authenticate as well as create 
+ Posts. It is made with a great help of [Feathers](http://feathersjs.com), an open source web framework for building modern real-time applications.
 
 ## Getting Started
 
@@ -19,8 +20,26 @@ Getting up and running is as easy as 1, 2, 3.
     cd path/to/nodejs-rest-api
     yarn install
     ```
+3. Rename and add your environment variables to the file .env. You can use the values pre-set for testing purposes.
+    ```
+    cp .env.sample .env
+    cat .env
+    ```  
+    ```
+    SECRET_KEY=CHANGE=ME
+    SERVER_PORT=3030
+    SERVER_PORT_TEST=3031
+    SERVER_URL=localhost
+    SERVER_DB=sqlite://nodejs-rest-api.sqlite
+    SERVER_DB_TEST=sqlite://nodejs-rest-api-test.sqlite
+    ```
+4. Test your app
 
-3. Start your app
+    ```
+    yarn test
+    ```
+
+5. Start your app
 
     ```
     yarn start
@@ -30,24 +49,28 @@ Getting up and running is as easy as 1, 2, 3.
 
 1. Make sure you have [docker](https://docs.docker.com/engine/install/) and [docker-compose](https://docs.docker.com/compose/install/) installed.
 
-2. Build, test and start the server:
-```
-$ docker-compose up -d
-```
+2. Install and start the server
+    ```
+    cd path/to/nodejs-rest-api
+    docker-compose up -d
+    ```
+3. Test your app
+   ```
+   docker exec -it nodejs-rest-api yarn test
+   ```
 
-3. Access http://localhost:3030
-
-## Testing
-
-Simply run `yarn test` and all your tests in the `test/` directory will be run.
+#### Once succeeded, access http://localhost:3030.
 
 ## API Endpoints
 ### Users
 #### Try to create a User through a POST request:
+
 ```
 POST http://localhost:3030/users
 ```
+    
 Payload:
+
 ```json
 { 
    "username":"user1",
@@ -55,6 +78,7 @@ Payload:
 }
 ```
 Response:
+
 ```json
 { 
   "username":"user1",
@@ -85,7 +109,7 @@ Response:
   },
   "user": {
     "id": <UUID>,
-    "username": "felipe"
+    "username": "user1"
   }
 }
 ```
@@ -93,6 +117,12 @@ Response:
 #### You can get a User through a GET request:
 ```
 GET http://localhost:3030/users/{uuid}
+```
+```json
+{ 
+  "username":"user1",
+  "id": <uuid>,
+}
 ```
 
 #### Remove a User requesting DELETE
@@ -145,14 +175,15 @@ Response:
   "limit": N,
   "skip": 0,
   "data": [
-  {
-    "author_id": <user-UUID>,
-    "title": "first post",
-    "body": "blah blah blah!",
-    "id": <UUID>,
-    "updatedAt": <Timestamp>,
-    "createdAt": <Timestamp>
-  }
+    {
+      "author_id": <user-UUID>,
+      "title": "first post",
+      "body": "blah blah blah!",
+      "id": <UUID>,
+      "updatedAt": <Timestamp>,
+      "createdAt": <Timestamp>
+    }
+  ]
 }
 ```
 
@@ -168,12 +199,12 @@ GET http://localhost:3030/posts/<uuid>
 Response:
 ```json
 {
-    "author_id": <user-UUID>,
-    "title": "first post",
-    "body": "blah blah blah!",
-    "id": <UUID>,
-    "updatedAt": <Timestamp>,
-    "createdAt": <Timestamp>
+  "author_id": <user-UUID>,
+  "title": "first post",
+  "body": "blah blah blah!",
+  "id": <UUID>,
+  "updatedAt": <Timestamp>,
+  "createdAt": <Timestamp>
 }
 ```
 
