@@ -4,7 +4,7 @@
 
 ## About
 
-This project implements two REST services: Users and Posts. You can create a User and authenticate as well as create 
+This project implements two REST services: Users and Posts. You can create and authenticate a User as well as create 
  Posts. It uses the [Feathers](http://feathersjs.com) framework, an open source web framework for building modern API and eal-time applications.
 
 ## Getting Started
