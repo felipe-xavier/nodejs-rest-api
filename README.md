@@ -49,12 +49,12 @@ Getting up and running is as easy as 1, 2, 3.
 
 1. Make sure you have [docker](https://docs.docker.com/engine/install/) and [docker-compose](https://docs.docker.com/compose/install/) installed.
 
-2. Install, test and start the server
+2. Install, test and start the App
     ```
     cd path/to/nodejs-rest-api
     docker-compose up -d
     ```
-3. Test your app
+3. You can also test your app directly
    ```
    docker exec -it nodejs-rest-api yarn test
    ```
@@ -73,16 +73,16 @@ Payload:
 
 ```json
 { 
-   "username":"user1",
-   "password":"pass"
+   "username":"newuser",
+   "password":"mypassword"
 }
 ```
 Response:
 
 ```json
 { 
-  "username":"user1",
-  "id": <uuid>,
+  "username":"newuser",
+  "id": <UUID>,
   "accessToken": <JWT-Token>
 }
 ```
@@ -94,8 +94,8 @@ POST http://localhost:3030/users/auth
 Payload:
 ```json
 {
-  "username": "user1",
-  "password": "pass",
+  "username": "newuser",
+  "password": "mypassword",
   "strategy": "local"
 }
 ```
@@ -109,7 +109,7 @@ Response:
   },
   "user": {
     "id": <UUID>,
-    "username": "user1"
+    "username": "newuser"
   }
 }
 ```
@@ -120,8 +120,8 @@ GET http://localhost:3030/users/{uuid}
 ```
 ```json
 { 
-  "username":"user1",
-  "id": <uuid>,
+  "username":"newuser",
+  "id": <UUID>,
 }
 ```
 
@@ -165,7 +165,7 @@ Response:
 
 #### Get all Posts through a GET request:
 ```
-GET http://localhost:3030/posts/$limit=N
+GET http://localhost:3030/posts/$limit={N}
 ```
 
 Response:
@@ -193,7 +193,7 @@ The returned list is in the descending order by createdAt field.
 
 #### Get a Post using a GET request:
 ```
-GET http://localhost:3030/posts/<uuid>
+GET http://localhost:3030/posts/{uuid}
 ```
 
 Response:
@@ -210,7 +210,7 @@ Response:
 
 #### Delete a Post:
 ```
-DELETE http://localhost:3030/posts/<uuid>
+DELETE http://localhost:3030/posts/{uuid}
 ```
 Header:
 ```
