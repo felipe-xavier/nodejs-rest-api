@@ -15,7 +15,8 @@ export default function (app: Application): typeof Model {
     },
     title: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
+      unique: true
     },
     body: {
       type: DataTypes.TEXT,
