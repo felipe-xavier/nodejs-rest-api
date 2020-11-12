@@ -26,7 +26,7 @@ Getting up and running is as easy as 1, 2, 3.
     cat .env
     ```  
     ```
-    SECRET_KEY=CHANGE=ME
+    SECRET_KEY=CHANGE-ME
     SERVER_PORT=3030
     SERVER_PORT_TEST=3031
     SERVER_URL=localhost
